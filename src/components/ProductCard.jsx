@@ -1,11 +1,15 @@
 import React from 'react';
 import '../styles/ProductCard.css';
 
-function ProductCard({ product }) {
+function ProductCard({ product, onAddToCart }) {
   return (
     <div className="product-card">
       <div className="product-image-container">
-        <img src={product.image} alt={product.name} className="product-image" />
+        <img 
+          src={product.image} 
+          alt={product.name} 
+          className="product-image"
+        />
       </div>
       <div className="product-info">
         <h3 className="product-name">{product.name}</h3>
@@ -14,6 +18,12 @@ function ProductCard({ product }) {
           <span className="product-price">${product.price}</span>
           <span className="product-category">{product.category}</span>
         </div>
+        <button 
+          className="add-to-cart-btn"
+          onClick={() => onAddToCart(product)}
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   );
